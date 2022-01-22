@@ -5,6 +5,9 @@ using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Handlers.Internals;
 
+/// <summary>
+/// this handler provides necessary info about request and library configurations
+/// </summary>
 internal class DefenceContextHandler : IDefenceContextHandler
 {
     private readonly IHttpContextAccessor _httpContextAccessor;

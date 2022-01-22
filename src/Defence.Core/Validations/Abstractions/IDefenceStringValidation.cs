@@ -1,5 +1,8 @@
 ﻿namespace Defence.Core.Validations.Abstractions;
 
+/// <summary>
+/// interface which validates fields with string type
+/// </summary>
 public interface IDefenceStringValidation
 {
     IDefenceStringValidation NotBeNullOrWhiteSpaceOrEmpty();

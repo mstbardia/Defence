@@ -4,6 +4,9 @@ using Defence.Core.Validations.Abstractions;
 
 namespace Defence.Core.Validations.Internals;
 
+/// <summary>
+/// implementation which validates fields with integer type
+/// </summary>
 internal class DefenceIntegerValidation : DefenceProperty<int>, IDefenceIntegerValidation
 {
     private readonly IDefenceErrorHandler _defenceErrorHandler;

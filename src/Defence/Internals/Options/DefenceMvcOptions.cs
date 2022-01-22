@@ -5,6 +5,9 @@ using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Internals.Options;
 
+/// <summary>
+/// as you maybe know , we set our filter in mvc filters here.
+/// </summary>
 internal class DefenceMvcOptions : IConfigureOptions<MvcOptions>
 {
     private readonly IServiceProvider _serviceProvider;

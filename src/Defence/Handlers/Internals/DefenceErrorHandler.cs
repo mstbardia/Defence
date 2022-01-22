@@ -4,6 +4,9 @@ using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Handlers.Internals;
 
+/// <summary>
+/// this handler helps to create and hold errors per field and per request on your model
+/// </summary>
 internal class DefenceErrorHandler : IDefenceErrorHandler
 {
     private readonly IDefenceContextHandler _defenceContextHandler;

@@ -4,6 +4,9 @@ using Defence.Core.Validations.Abstractions;
 
 namespace Defence.Core.Validations.Internals;
 
+/// <summary>
+/// implementation which validates fields with string type
+/// </summary>
 internal class DefenceStringValidation : DefenceProperty<string> , IDefenceStringValidation
 {
     private readonly IDefenceErrorHandler _defenceErrorHandler;

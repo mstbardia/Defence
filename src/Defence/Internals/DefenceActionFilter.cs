@@ -10,6 +10,11 @@ using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Internals;
 
+/// <summary>
+/// heart of library which resolves defined validators depend on your
+/// request's model type then validates their fields and returns their errors
+/// if any violation happens.
+/// </summary>
 internal class DefenceActionFilter : ActionFilterAttribute
 {
     private readonly IServiceProvider _serviceProvider;
