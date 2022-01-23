@@ -44,6 +44,6 @@ _Setting Up Defence in Program.cs on Net 6 :_
 ```c#
     builder.Services.AddDefence(configuration =>
     {
-    configuration.ValidatorTypeExample = typeof(UserCommandValidator);
+            configuration.ValidatorTypeExample = typeof(UserCommandValidator);
     });
 ```
