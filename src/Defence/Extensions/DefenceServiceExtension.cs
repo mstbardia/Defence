@@ -34,9 +34,9 @@ public static class DefenceServiceExtension
         {
             options.ThrowExceptions = config.ThrowExceptions;
         });
-        if (config.ValidatorTypeExample != null)
+        if (config.ImplementedValidatorTypeKind != null)
             services.Scan(scan => scan
-                .FromAssemblies(config.ValidatorTypeExample.Assembly)
+                .FromAssemblies(config.ImplementedValidatorTypeKind.Assembly)
                 .AddClasses(classes => classes.AssignableTo(typeof(IDefenceValidator)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());

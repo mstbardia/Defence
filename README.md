@@ -8,7 +8,7 @@ _**Pros :**_
 validating your models before calling Actions. Actually it happens exactly when model bounded by MVC.
 For example you can inject your database repository and check some ids.
 - It uses fluent design so you can put your implementations on where ever you want in your project.
-- It is based on the MVC FilterActions so you can use it in WebApi,Razor Page,etc or artitectures like MVC,CQRS.
+- It is based on the MVC FilterActions so you can use it in architectures like MVC,CQRS.
 - **New features are coming...**
 
 
@@ -42,8 +42,10 @@ _Implementation of Defence validator :_
 
 _Setting Up Defence in Program.cs on Net 6 :_
 ```c#
+    var builder = WebApplication.CreateBuilder(args);
+    
     builder.Services.AddDefence(configuration =>
     {
-            configuration.ValidatorTypeExample = typeof(UserCommandValidator);
+       configuration.ImplementedValidatorTypeKind = typeof(UserCommandValidator);
     });
 ```
