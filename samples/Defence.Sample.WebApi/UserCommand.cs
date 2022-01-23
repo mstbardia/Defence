@@ -8,14 +8,6 @@ public class UserCommand
     
     public int Age { get; set; }
 }
-
-
-
-public class RoleCommand
-{
-    public string RoleName { get; set; }
-    
-    public string RoleId { get; set; }
-}
+ 
 
 

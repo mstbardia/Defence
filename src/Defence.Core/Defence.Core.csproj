@@ -11,14 +11,14 @@
         <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     </ItemGroup>
 
-
-    
     
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
             <_Parameter1>Defence</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
+    
+    
     
     <!--for unit tests-->
     <ItemGroup>
@@ -29,11 +29,4 @@
             <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
-    
-    
-    <ItemGroup>
-      <Folder Include="Handlers\Internals" />
-    </ItemGroup>
-
-    
 </Project>

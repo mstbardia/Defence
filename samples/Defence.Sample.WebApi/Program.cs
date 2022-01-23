@@ -16,8 +16,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDefence(configuration =>
 {
-    configuration.ValidatorTypeExample = typeof(UserCommandValidator);
-   // configuration.ThrowExceptions = true;
+   configuration.ValidatorTypeExample = typeof(UserCommandValidator);
+   //configuration.ThrowExceptions = true;
 });
   
 

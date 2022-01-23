@@ -4,7 +4,7 @@ namespace Defence.Core.Exceptions;
 
 public class DefenceBadRequestException : DefenceExceptionBase 
 {
-    public DefenceBadRequestException(string message = "Bad Request") : base(message, 400)
+    public DefenceBadRequestException(string errorMessage = "Bad Request") : base(errorMessage, 400)
     {
         
     }

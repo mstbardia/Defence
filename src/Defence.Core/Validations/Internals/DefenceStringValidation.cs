@@ -5,9 +5,9 @@ using Defence.Core.Validations.Abstractions;
 namespace Defence.Core.Validations.Internals;
 
 /// <summary>
-/// implementation which validates fields with string type
+/// implementation of <see cref="IDefenceStringValidation" />
 /// </summary>
-internal class DefenceStringValidation : DefenceProperty<string> , IDefenceStringValidation
+internal class  DefenceStringValidation : DefenceProperty<string> , IDefenceStringValidation
 {
     private readonly IDefenceErrorHandler _defenceErrorHandler;
     
@@ -60,7 +60,7 @@ internal class DefenceStringValidation : DefenceProperty<string> , IDefenceStrin
     public IDefenceStringValidation HaveExactLength(int value)
     {
         if (Input?.Length != value || Input == null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have length of {value}");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length : {value}");
 
         return this;
     }
@@ -69,7 +69,7 @@ internal class DefenceStringValidation : DefenceProperty<string> , IDefenceStrin
     public IDefenceStringValidation HaveGreaterLength(int value)
     {
         if (Input?.Length <= value || Input == null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have greater length of {value}");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have greater length than {value}");
 
         return this;
     }

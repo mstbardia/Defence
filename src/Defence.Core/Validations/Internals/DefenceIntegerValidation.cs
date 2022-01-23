@@ -5,7 +5,7 @@ using Defence.Core.Validations.Abstractions;
 namespace Defence.Core.Validations.Internals;
 
 /// <summary>
-/// implementation which validates fields with integer type
+/// implementation of <see cref="IDefenceIntegerValidation" />
 /// </summary>
 internal class DefenceIntegerValidation : DefenceProperty<int>, IDefenceIntegerValidation
 {

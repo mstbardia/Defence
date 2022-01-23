@@ -24,7 +24,7 @@ internal class DefenceActionFilter : ActionFilterAttribute
     {
         _serviceProvider = serviceProvider;
         _defenceErrorHandler = defenceErrorHandler;
-        DefenceFactory.Configure(_defenceErrorHandler);
+        DefenceExtensions.Configure(_defenceErrorHandler);
     }
 
 

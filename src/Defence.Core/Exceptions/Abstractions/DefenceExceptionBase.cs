@@ -2,14 +2,14 @@
 
 public abstract class DefenceExceptionBase : Exception
 {
-    public DefenceExceptionBase(string message , int statusCode)
+    public DefenceExceptionBase(string errorMessage , int statusCode)
     {
-        Message = message;
+        ErrorMessage = errorMessage;
         
         StatusCode = statusCode;
     }
 
     public int StatusCode { get; private set; }
     
-    public string Message { get; private set; }
+    public string ErrorMessage { get; private set; }
 }
