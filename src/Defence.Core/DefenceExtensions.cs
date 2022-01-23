@@ -24,7 +24,6 @@ public static class DefenceExtensions
     /// <summary>
     /// Returns an <see cref="IDefenceIntegerValidation" /> object that can be used to validate
     /// </summary>
-    /// <param name="input">your input field</param>
     /// <param name="fieldName">your field name to specify in error result</param>
     /// <returns></returns>
     public static IDefenceIntegerValidation Must(this int input, string fieldName)
