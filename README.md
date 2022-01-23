@@ -23,7 +23,7 @@ dotnet add package Defence.Core
 The following code demonstrates basic usage of Defence.
 
 _Implementation of Defence validator :_
-```cs
+```c#
     public class UserCommandValidator : IDefenceValidator<UserCommand>
     {
         public Task Validate(UserCommand input)
@@ -41,9 +41,9 @@ _Implementation of Defence validator :_
 ```
 
 _Setting Up Defence in Program.cs on Net 6 :_
-```cs
-builder.Services.AddDefence(configuration =>
-{
-configuration.ValidatorTypeExample = typeof(UserCommandValidator);
-});
+```c#
+    builder.Services.AddDefence(configuration =>
+    {
+    configuration.ValidatorTypeExample = typeof(UserCommandValidator);
+    });
 ```
