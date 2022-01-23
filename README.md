@@ -4,11 +4,11 @@ ASP.NET Core Validations For Request Bounded Model
 Defence is a library that helps you to validate your request bounded model by fluent implementations.
 
 _**Pros :**_
-- The main difference between Defence and other libraries is that with Defence you can use _**Dependency Injection (DI)**_ in your validator class, so you can easily do whatever you want for
+- You can use _**Dependency Injection (DI)**_ . So you can easily do whatever you want for
 validating your models before calling Actions. Actually it happens exactly when model bounded by MVC.
 For example you can inject your database repository and check some ids.
-- It uses fluent design so you can put your implementations on where ever you want.
-- It is based on the MVC FilterActions so you can use it in WebApi,Razor Page,etc.
+- It uses fluent design so you can put your implementations on where ever you want in your project.
+- It is based on the MVC FilterActions so you can use it in WebApi,Razor Page,etc with artitectures like MVC,CQRS.
 - **New features are coming...**
 
 
