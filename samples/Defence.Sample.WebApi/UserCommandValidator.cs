@@ -12,7 +12,7 @@ public class UserCommandValidator : IDefenceValidator<UserCommand>
         
         input.Family.Must(nameof(input.Family)).HaveExactLength(5);
 
-        input.Age.Must(nameof(input.Age)).LessThan(2);
+        input.Age.Must(nameof(input.Age)).BeLessThan(2);
         
         return Task.CompletedTask;
     }

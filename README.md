@@ -49,3 +49,15 @@ _Setting Up Defence in Program.cs on Net 6 :_
        configuration.ImplementedValidatorTypeKind = typeof(UserCommandValidator);
     });
 ```
+Methods exist for validation on primitives :
+
+String :
+```c#
+-NotBeNullOrWhiteSpaceOrEmpty();
+-BeNullOrWhiteSpaceOrEmpty();
+-NotBeNullOrEmpty();
+-BeNullOrEmpty();
+-BeEqual(string value);
+-HaveExactLength(int value);
+-HaveGreaterLength(int value);
+```
