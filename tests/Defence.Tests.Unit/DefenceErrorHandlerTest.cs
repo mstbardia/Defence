@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using AutoFixture;
+using Defence.Core;
 using FluentAssertions;
 using NSubstitute;
 using Defence.Core.Exceptions;
@@ -33,10 +34,11 @@ public class DefenceErrorHandlerTest
         defenceContextHandler.GetRequestTraceId().Returns(firstRequestTraceId);
 
         // Act
-        var result = defenceErrorHandler.GetCurrentRequestErrors();
+        var result = defenceErrorHandler.GetCurrentRequestResult();
 
         // Assert
-        result.Should().Equal(new[] {"f1 : e1"});
+        result.DefenceErrors.Should().BeEquivalentTo(new[] { "f1 : e1"});
+        result.TraceId.Should().Be(firstRequestTraceId);
     }
 
     
@@ -61,10 +63,11 @@ public class DefenceErrorHandlerTest
         defenceContextHandler.GetRequestTraceId().Returns(firstRequestTraceId);
 
         // Act
-        var result = defenceErrorHandler.GetCurrentRequestErrors();
+        var result = defenceErrorHandler.GetCurrentRequestResult();
 
         // Assert
-        result.Should().Equal(new[] {"f1 : e1" , "f2 : e2" , "f3 : e3"});
+        result.DefenceErrors.Should().BeEquivalentTo(new[] { "f1 : e1" , "f2 : e2", "f3 : e3" });
+        result.TraceId.Should().Be(firstRequestTraceId);
     }
     
       
@@ -81,10 +84,10 @@ public class DefenceErrorHandlerTest
         defenceContextHandler.GetRequestTraceId().Returns(firstRequestTraceId);
 
         // Act
-        var result = defenceErrorHandler.GetCurrentRequestErrors();
+        var result = defenceErrorHandler.GetCurrentRequestResult();
 
         // Assert
-        result.Should().BeEmpty();
+        result.Should().BeNull();
     }
     
     [Fact]
@@ -104,8 +107,9 @@ public class DefenceErrorHandlerTest
 
         
         // Assert
-        var result = defenceErrorHandler.GetCurrentRequestErrors();
-        result.Should().Equal(new[] {"f1 : e1" , "f2 : e2", "f3 : e3"});
+        var result = defenceErrorHandler.GetCurrentRequestResult();
+        result.DefenceErrors.Should().BeEquivalentTo(new[] { "f1 : e1" , "f2 : e2", "f3 : e3" });
+        result.TraceId.Should().Be(firstRequestTraceId);
     }
     
     
@@ -133,8 +137,8 @@ public class DefenceErrorHandlerTest
         defenceErrorHandler.ClearCurrentRequestErrors();
 
         // Assert
-        var result = defenceErrorHandler.GetCurrentRequestErrors();
-        result.Should().BeEmpty();
+        var result = defenceErrorHandler.GetCurrentRequestResult();
+        result.Should().BeNull();
     }
     
     
@@ -201,9 +205,9 @@ public class DefenceErrorHandlerTest
 
 
         // Assert
-        var checkErrorsExist = defenceErrorHandler.GetCurrentRequestErrors();
+        var checkErrorsExist = defenceErrorHandler.GetCurrentRequestResult();
         result.Should().ThrowExactly<DefenceBadRequestException>();
-        checkErrorsExist.Should().BeEmpty();
+        checkErrorsExist.Should().BeNull();
     }
     
     

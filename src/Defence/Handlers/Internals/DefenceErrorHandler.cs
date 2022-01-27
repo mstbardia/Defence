@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Defence.Core;
 using Defence.Core.Exceptions;
 using Defence.Core.Handlers.Internals.Abstractions;
+using Defence.Internals;
 
 namespace Defence.Handlers.Internals;
 
@@ -23,13 +25,13 @@ internal class DefenceErrorHandler : IDefenceErrorHandler
         return Errors;
     }
 
-    public HashSet<string> GetCurrentRequestErrors()
+    public DefenceResult GetCurrentRequestResult()
     {
         var traceId = _defenceContextHandler.GetRequestTraceId();
 
         var isTraceIdExist = Errors.TryGetValue(traceId, out var errorList);
-
-        return isTraceIdExist ? errorList : new HashSet<string>();
+ 
+        return isTraceIdExist ? new DefenceResult(errorList,traceId) : null;
     }
     
     public void CreateCurrentRequestError(string fieldName, string error)

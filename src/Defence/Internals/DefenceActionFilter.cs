@@ -39,18 +39,18 @@ internal class DefenceActionFilter : ActionFilterAttribute
         {
             var validatorType = typeof(IDefenceValidator<>).MakeGenericType(model.GetType());
 
-            if (scope.ServiceProvider.GetService(validatorType) is IDefenceValidator validator)
+            if (scope.ServiceProvider.GetService(validatorType) is IValidator validator)
                 await validator.Validate(model);
         }
 
-        var validationErrors = _defenceErrorHandler.GetCurrentRequestErrors();
+        var validationResult = _defenceErrorHandler.GetCurrentRequestResult();
 
-        if (validationErrors.Any())
+        if (validationResult != null)
         {
             context.Result = new ObjectResult(true)
             {
                 StatusCode = 400,
-                Value = new DefenceResult(validationErrors)
+                Value = validationResult
             };
 
             _defenceErrorHandler.ClearCurrentRequestErrors();

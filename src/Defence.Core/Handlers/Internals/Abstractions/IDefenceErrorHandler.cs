@@ -7,7 +7,7 @@ internal interface IDefenceErrorHandler
 {
     Dictionary<string, HashSet<string>> GetAllRequestsErrors();
   
-    HashSet<string> GetCurrentRequestErrors();
+    DefenceResult GetCurrentRequestResult();
     
     void CreateCurrentRequestError(string fieldName, string error);
 

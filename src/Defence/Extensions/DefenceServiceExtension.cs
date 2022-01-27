@@ -37,7 +37,7 @@ public static class DefenceServiceExtension
         if (config.ImplementedValidatorTypeKind != null)
             services.Scan(scan => scan
                 .FromAssemblies(config.ImplementedValidatorTypeKind.Assembly)
-                .AddClasses(classes => classes.AssignableTo(typeof(IDefenceValidator)))
+                .AddClasses(classes => classes.AssignableTo(typeof(IValidator)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         return services;

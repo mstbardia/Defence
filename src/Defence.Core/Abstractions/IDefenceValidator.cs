@@ -4,7 +4,7 @@
 /// Do not use this , it is just a trick
 /// for using strategy pattern in heart of library
 /// </summary>
-public interface IDefenceValidator
+public interface IValidator
 {
     Task Validate(object input);
 }
@@ -14,9 +14,9 @@ public interface IDefenceValidator
 /// helps you to make fluent validation of your model
 /// </summary>
 /// <typeparam name="T">The Type which you want to validate</typeparam>
-public interface IDefenceValidator<in T> : IDefenceValidator
+public interface IDefenceValidator<in T> : IValidator
 {
-    Task IDefenceValidator.Validate(object source)
+    Task IValidator.Validate(object source)
     {
         return Validate((T) source);
     }
