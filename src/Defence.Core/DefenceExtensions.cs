@@ -1,6 +1,8 @@
 ﻿using Defence.Core.Handlers.Internals.Abstractions;
 using Defence.Core.Validations.Abstractions;
+using Defence.Core.Validations.Abstractions.Nullables;
 using Defence.Core.Validations.Internals;
+using Defence.Core.Validations.Internals.Nullables;
 
 namespace Defence.Core;
 
@@ -22,24 +24,29 @@ public static class DefenceExtensions
     }
   
     /// <summary>
-    /// Returns an <see cref="IDefenceIntegerValidation" /> object that can be used to validate
+    /// Returns an <see cref="IIntegerValidation" /> object that can be used to validate
     /// </summary>
     /// <param name="fieldName">your field name to specify in error result</param>
     /// <returns></returns>
-    public static IDefenceIntegerValidation Must(this int input, string fieldName)
+    public static IIntegerValidation Must(this int input, string fieldName)
     {
-        return new DefenceIntegerValidation(fieldName, input, _defenceErrorHandler);
+        return new IntegerValidation(fieldName, input, _defenceErrorHandler);
+    }
+    
+    public static INullableIntegerValidation Must(this int? input, string fieldName)
+    {
+        return new NullableIntegerValidation(fieldName, input, _defenceErrorHandler);
     }
     
     /// <summary>
-    /// Returns an <see cref="IDefenceStringValidation" /> object that can be used to validate
+    /// Returns an <see cref="IStringValidation" /> object that can be used to validate
     /// </summary>
     /// <param name="input">your input field</param>
     /// <param name="fieldName">your field name to specify in error result</param>
     /// <returns></returns>
-    public static IDefenceStringValidation Must(this string input, string fieldName)
+    public static IStringValidation Must(this string input, string fieldName)
     {
-        return new DefenceStringValidation(fieldName, input, _defenceErrorHandler);
+        return new StringValidation(fieldName, input, _defenceErrorHandler);
     }
 }
 

@@ -7,6 +7,7 @@ public class UserCommand
     public string Family { get; set; }
     
     public int Age { get; set; }
+    public int? DD { get; set; }
 }
  
 

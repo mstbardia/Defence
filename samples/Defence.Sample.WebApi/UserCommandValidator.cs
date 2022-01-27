@@ -8,12 +8,19 @@ public class UserCommandValidator : IDefenceValidator<UserCommand>
     public Task Validate(UserCommand input)
     {
         
-        input.Family.Must(nameof(input.Family)).NotBeNullOrEmpty();
-        
+        // input.Family.Must(nameof(input.Family)).NotBeNullOrEmpty();
+        //
+        //
+        // input.Age.Must(nameof(input.Age))
+        //
+
+
+         
         input.Family.Must(nameof(input.Family)).HaveExactLength(5);
 
-        input.Age.Must(nameof(input.Age)).BeLessThan(2);
-        
+            
+        input.DD.Must("DD").BeLessThan(5);
+            
         return Task.CompletedTask;
     }
 }
