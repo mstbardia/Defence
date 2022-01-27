@@ -22,7 +22,6 @@ public static class DefenceExtensions
         if (_defenceErrorHandler == null)
             _defenceErrorHandler = defenceErrorHandler;
     }
-  
     /// <summary>
     /// Returns an <see cref="IIntegerValidation" /> object that can be used to validate
     /// </summary>
@@ -32,12 +31,15 @@ public static class DefenceExtensions
     {
         return new IntegerValidation(fieldName, input, _defenceErrorHandler);
     }
-    
+    /// <summary>
+    /// Returns an <see cref="IIntegerValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
     public static INullableIntegerValidation Must(this int? input, string fieldName)
     {
         return new NullableIntegerValidation(fieldName, input, _defenceErrorHandler);
     }
-    
     /// <summary>
     /// Returns an <see cref="IStringValidation" /> object that can be used to validate
     /// </summary>

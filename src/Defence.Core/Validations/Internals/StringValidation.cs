@@ -37,7 +37,7 @@ internal class StringValidation : DefenceProperty<string>, IStringValidation, IN
     public IStringValidation NotBeNullOrEmpty()
     {
         if (string.IsNullOrEmpty(Input))
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must be not null or empty");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must not be null or empty");
 
         return this;
     }
@@ -63,8 +63,7 @@ internal class StringValidation : DefenceProperty<string>, IStringValidation, IN
     public IStringValidation HaveExactLength(int value)
     {
         if (Input == null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName,
-                $"Must have exact length : {value} But it is Null");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length : {value} But it is Null");
         else if (Input.Length != value)
             _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length : {value}");
 
@@ -86,7 +85,7 @@ internal class StringValidation : DefenceProperty<string>, IStringValidation, IN
     public IStringValidation NotBeNull()
     {
         if (Input == null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Should not be null");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must not be null");
 
         return this;
     }
@@ -94,7 +93,7 @@ internal class StringValidation : DefenceProperty<string>, IStringValidation, IN
     public IStringValidation BeNull()
     {
         if (Input != null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Should be null");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must be null");
 
         return this;
     }

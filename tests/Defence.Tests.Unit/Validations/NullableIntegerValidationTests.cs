@@ -417,7 +417,7 @@ public class NullableIntegerValidationTests
     
     [Theory]
     [InlineData(1)]
-    public async Task Should_throw_with_wrong_input_on_BeNegative(int input)
+    public async Task Should_throw_with_wrong_input_on_BeNegative(int? input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -438,7 +438,7 @@ public class NullableIntegerValidationTests
     
     [Theory]
     [InlineData(-5),InlineData(0)]
-    public async Task Should_not_throw_with_correct_input_on_BeNegative(int input)
+    public async Task Should_not_throw_with_correct_input_on_BeNegative(int? input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -451,6 +451,88 @@ public class NullableIntegerValidationTests
 
         // Act
         var result = () => validator.BeNegative();
+
+        // Assert
+        result.Should().NotThrow();
+    }
+    
+    [Theory]
+    [InlineData(null)]
+    public async Task Should_throw_with_wrong_input_on_NotBeNull(int? input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+
+        // Act
+        var result = () => validator.NotBeNull();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must not be null");
+    }
+    
+    [Theory]
+    [InlineData(5)]
+    public async Task Should_not_throw_with_correct_input_on_NotBeNull(int input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+
+        // Act
+        var result = () => validator.NotBeNull();
+
+        // Assert
+        result.Should().NotThrow();
+    }
+    
+    [Theory]
+    [InlineData(5)]
+    public async Task Should_throw_with_wrong_input_on_BeNull(int? input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+
+        // Act
+        var result = () => validator.BeNull();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must be null");
+    }
+    
+    [Theory]
+    [InlineData(null)]
+    public async Task Should_not_throw_with_correct_input_on_BeNull(int? input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+
+        // Act
+        var result = () => validator.BeNull();
 
         // Assert
         result.Should().NotThrow();
