@@ -6,7 +6,7 @@ internal class DefenceResult
 {
     public DefenceResult(IEnumerable<string> errors)
     {
-        Errors = errors;
+        DefenceErrors = errors;
     }
-    public IEnumerable<string> Errors { get; set; }
+    public IEnumerable<string> DefenceErrors { get; set; }
 }
