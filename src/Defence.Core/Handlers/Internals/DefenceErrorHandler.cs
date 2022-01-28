@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using Defence.Core;
-using Defence.Core.Exceptions;
+﻿using Defence.Core.Exceptions;
 using Defence.Core.Handlers.Internals.Abstractions;
-using Defence.Internals;
 
-namespace Defence.Handlers.Internals;
+namespace Defence.Core.Handlers.Internals;
 
 /// <summary>
 /// this handler helps to create and hold errors per field and per request on your model

@@ -1,9 +1,8 @@
-﻿using Defence.Internals.Options;
+﻿using Defence.Core.Handlers.Internals.Abstractions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using Defence.Core.Handlers.Internals.Abstractions;
 
-namespace Defence.Handlers.Internals;
+namespace Defence.Core.Handlers.Internals;
 
 /// <summary>
 /// this handler provides necessary info about request and library configurations

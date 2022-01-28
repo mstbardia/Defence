@@ -1,4 +1,4 @@
-using Defence.Extensions;
+using Defence;
 using Defence.Sample.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDefence(configuration =>
 {
    configuration.ImplementedValidatorTypeKind = typeof(UserCommandValidator);
+   //configuration.ThrowExceptions = true;
 });
   
 

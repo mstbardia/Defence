@@ -1,8 +1,7 @@
 ﻿namespace Defence.Core.Abstractions;
 
 /// <summary>
-/// Do not use this , it is just a trick
-/// for using strategy pattern in heart of library
+/// Do not play with this , it is just a trick for strategy
 /// </summary>
 public interface IValidator
 {
@@ -16,10 +15,6 @@ public interface IValidator
 /// <typeparam name="T">The Type which you want to validate</typeparam>
 public interface IDefenceValidator<in T> : IValidator
 {
-    Task IValidator.Validate(object source)
-    {
-        return Validate((T) source);
-    }
-
+    Task IValidator.Validate(object source) => Validate((T) source);
     Task Validate(T input);
 }

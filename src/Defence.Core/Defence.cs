@@ -9,7 +9,7 @@ namespace Defence.Core;
 /// <summary>
 /// Contains extension methods for Defence validations in unit tests.
 /// </summary>
-public static class DefenceExtensions
+public static class Defence
 {
     private static IDefenceErrorHandler _defenceErrorHandler;
     
@@ -19,8 +19,7 @@ public static class DefenceExtensions
     /// <param name="defenceErrorHandler">an instance from IDefenceErrorHandler</param>
     internal static void Configure(IDefenceErrorHandler defenceErrorHandler)
     {
-        if (_defenceErrorHandler == null)
-            _defenceErrorHandler = defenceErrorHandler;
+        _defenceErrorHandler ??= defenceErrorHandler;
     }
     /// <summary>
     /// Returns an <see cref="IIntegerValidation" /> object that can be used to validate

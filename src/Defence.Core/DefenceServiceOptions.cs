@@ -1,4 +1,4 @@
-namespace Defence.Internals.Options;
+namespace Defence.Core;
 
 
 internal class DefenceServiceOptions

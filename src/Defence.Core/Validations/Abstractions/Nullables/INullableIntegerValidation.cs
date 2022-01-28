@@ -1,4 +1,4 @@
-﻿using Defence.Core.Validations.Abstractions.Base;
+﻿using Defence.Core.Validations.Abstractions.Nullables.Base;
 
 namespace Defence.Core.Validations.Abstractions.Nullables;
 

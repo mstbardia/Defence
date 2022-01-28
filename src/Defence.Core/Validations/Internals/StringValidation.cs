@@ -1,7 +1,7 @@
 ﻿using Defence.Core.Handlers.Internals.Abstractions;
 using Defence.Core.Internals;
 using Defence.Core.Validations.Abstractions;
-using Defence.Core.Validations.Abstractions.Base;
+using Defence.Core.Validations.Abstractions.Nullables.Base;
 
 namespace Defence.Core.Validations.Internals;
 
@@ -63,9 +63,9 @@ internal class StringValidation : DefenceProperty<string>, IStringValidation, IN
     public IStringValidation HaveExactLength(int value)
     {
         if (Input == null)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length : {value} But it is Null");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length {value} But it is Null");
         else if (Input.Length != value)
-            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length : {value}");
+            _defenceErrorHandler.CreateCurrentRequestError(FieldName, $"Must have exact length {value}");
 
         return this;
     }

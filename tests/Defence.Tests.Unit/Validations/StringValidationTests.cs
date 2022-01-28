@@ -3,9 +3,9 @@ using AutoFixture;
 using FluentAssertions;
 using NSubstitute;
 using Defence.Core.Exceptions;
+using Defence.Core.Handlers.Internals;
 using Defence.Core.Handlers.Internals.Abstractions;
 using Defence.Core.Validations.Internals;
-using Defence.Handlers.Internals;
 using Xunit;
 
 namespace Defence.Tests.Unit.Validations;
@@ -230,7 +230,7 @@ public class StringValidationTests
         var result = () => validator.HaveExactLength(expectedValue);
 
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must have exact length : {expectedValue} But it is Null");
+            .WithMessage($"{fakeField} : Must have exact length {expectedValue} But it is Null");
     }
     
     [Theory]
@@ -249,7 +249,7 @@ public class StringValidationTests
         var result = () => validator.HaveExactLength(expectedValue);
 
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must have exact length : {expectedValue}");
+            .WithMessage($"{fakeField} : Must have exact length {expectedValue}");
     }
 
     [Theory]

@@ -3,10 +3,10 @@ using AutoFixture;
 using FluentAssertions;
 using NSubstitute;
 using Defence.Core.Exceptions;
+using Defence.Core.Handlers.Internals;
 using Defence.Core.Handlers.Internals.Abstractions;
 using Defence.Core.Validations.Internals;
 using Defence.Core.Validations.Internals.Nullables;
-using Defence.Handlers.Internals;
 using Xunit;
 
 namespace Defence.Tests.Unit.Validations;

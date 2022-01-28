@@ -1,14 +1,14 @@
 ﻿using System;
-using Defence.Handlers.Internals;
+using Defence.Core;
+using Defence.Core.Abstractions;
+using Defence.Core.Handlers.Internals;
+using Defence.Core.Handlers.Internals.Abstractions;
 using Defence.Internals.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Defence.Core;
-using Defence.Core.Abstractions;
-using Defence.Core.Handlers.Internals.Abstractions;
 
-namespace Defence.Extensions;
+namespace Defence;
 
 /// <summary>
 /// Extension methods for setting up Defence to protect your

@@ -17,7 +17,4 @@ internal class DefenceProperty<T>
 
     protected string FieldName { get; set; }
     protected T Input { get; set; }
-
-
-    protected virtual bool IsLegitForTest() => true;
 }

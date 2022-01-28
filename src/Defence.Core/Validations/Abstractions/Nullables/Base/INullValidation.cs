@@ -1,4 +1,4 @@
-﻿namespace Defence.Core.Validations.Abstractions.Base;
+﻿namespace Defence.Core.Validations.Abstractions.Nullables.Base;
 
 public interface INullValidation<out T>
 {

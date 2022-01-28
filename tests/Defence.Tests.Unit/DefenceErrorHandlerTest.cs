@@ -4,8 +4,8 @@ using Defence.Core;
 using FluentAssertions;
 using NSubstitute;
 using Defence.Core.Exceptions;
+using Defence.Core.Handlers.Internals;
 using Defence.Core.Handlers.Internals.Abstractions;
-using Defence.Handlers.Internals;
 using Xunit;
 
 namespace Defence.Tests.Unit;
