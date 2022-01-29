@@ -23,6 +23,7 @@
 
     
     <ItemGroup>
+        <None Include="..\..\assets\logo\defence.png" Pack="true" PackagePath=""/>
         <InternalsVisibleTo Include="Defence"/>
         <InternalsVisibleTo Include="Defence.Tests.Unit"/>
         <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
