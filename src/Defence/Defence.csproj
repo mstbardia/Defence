@@ -2,6 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <PackageVersion>0.1.0</PackageVersion>
+        <Authors>Bardia Mostafavi</Authors>
+        <Title>Defence</Title>
+        <Description>Defence is a library that helps you to validate your request bounded input model by fluent implementations.</Description>
+        <RepositoryUrl>https://github.com/mstbardia/Defence</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/mstbardia/Defence</PackageProjectUrl>
+        <PackageTags>validation;mvc;fluentapi;filteraction;</PackageTags>
+        <PackageIcon>defence.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,21 +22,12 @@
         <PackageReference Include="Scrutor" Version="3.3.0" />
     </ItemGroup>
 
+    
+    
     <ItemGroup>
+        <None Include="..\..\assets\logo\defence.png" Pack="true" PackagePath=""/>
         <ProjectReference Include="..\Defence.Core\Defence.Core.csproj" />
-    </ItemGroup>
-
-
-    
-    
-    
-    <!--for unit tests-->
-    <ItemGroup>
-        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-            <_Parameter1>Defence.Tests.Unit</_Parameter1>
-        </AssemblyAttribute>
-        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-            <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
-        </AssemblyAttribute>
+        <InternalsVisibleTo Include="Defence.Tests.Unit" />
+        <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
     </ItemGroup>
 </Project>

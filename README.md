@@ -10,7 +10,7 @@
 
 ASP.NET Core Validations For HTTP Requests
 
-Defence is a library that helps you to validate your request bounded model by fluent implementations.
+Defence is a library that helps you to validate your request bounded input model by fluent implementations.
 
 ### Overview
 - You can use _**Dependency Injection (DI)**_ . So you can easily do whatever you want for

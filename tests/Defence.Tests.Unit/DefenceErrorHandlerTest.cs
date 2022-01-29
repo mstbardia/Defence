@@ -14,7 +14,7 @@ public class DefenceErrorHandlerTest
 {
 
     [Fact]
-    public async Task Should_return_correct_error_for_specific_request()
+    public void Should_return_correct_error_for_specific_request()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -43,7 +43,7 @@ public class DefenceErrorHandlerTest
 
     
     [Fact]
-    public async Task Should_return_all_errors_for_specific_request()
+    public void Should_return_all_errors_for_specific_request()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -72,7 +72,7 @@ public class DefenceErrorHandlerTest
     
       
     [Fact]
-    public async Task Should_return_empty_list_for_specific_request_when_no_error_exist()
+    public void Should_return_empty_list_for_specific_request_when_no_error_exist()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -91,7 +91,7 @@ public class DefenceErrorHandlerTest
     }
     
     [Fact]
-    public async Task Should_not_create_duplicate_errors_for_specific_request()
+    public void Should_not_create_duplicate_errors_for_specific_request()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -114,7 +114,7 @@ public class DefenceErrorHandlerTest
     
     
     [Fact]
-    public async Task Should_clear_errors_correctly_for_specific_request()
+    public void Should_clear_errors_correctly_for_specific_request()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -143,7 +143,7 @@ public class DefenceErrorHandlerTest
     
     
     [Fact]
-    public async Task Should_not_throw_at_clear_errors_for_specific_request_with_no_errors()
+    public void Should_not_throw_at_clear_errors_for_specific_request_with_no_errors()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -168,7 +168,7 @@ public class DefenceErrorHandlerTest
     
     
     [Fact]
-    public async Task Should_throw_when_throw_options_true_for_specific_request()
+    public void Should_throw_when_throw_options_true_for_specific_request()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -189,7 +189,7 @@ public class DefenceErrorHandlerTest
 
     
     [Fact]
-    public async Task Should_clear_request_errors_when_throw_errors()
+    public void Should_clear_request_errors_when_throw_errors()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();

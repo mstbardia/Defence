@@ -14,7 +14,7 @@ public class StringValidationTests
 {
     [Theory]
     [InlineData(null), InlineData("")]
-    public async Task Should_throw_with_wrong_input_on_NotBeNullOrEmpty(string input)
+    public void Should_throw_with_wrong_input_on_NotBeNullOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -33,7 +33,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("input"), InlineData(" ")]
-    public async Task Should_not_throw_with_correct_input_on_NotBeNullOrEmpty(string input)
+    public void Should_not_throw_with_correct_input_on_NotBeNullOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -51,7 +51,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(" "), InlineData("input")]
-    public async Task Should_throw_with_wrong_input_on_BeNullOrEmpty(string input)
+    public void Should_throw_with_wrong_input_on_BeNullOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -70,7 +70,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(null), InlineData("")]
-    public async Task Should_not_throw_with_correct_input_on_BeNullOrEmpty(string input)
+    public void Should_not_throw_with_correct_input_on_BeNullOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -88,7 +88,7 @@ public class StringValidationTests
     
     [Theory]
     [InlineData(null), InlineData(" "), InlineData("")]
-    public async Task Should_throw_with_wrong_input_on_NotBeNullOrWhiteSpaceOrEmpty(string input)
+    public void Should_throw_with_wrong_input_on_NotBeNullOrWhiteSpaceOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -106,7 +106,7 @@ public class StringValidationTests
     }
 
     [Fact]
-    public async Task Should_not_throw_with_correct_input_on_NotBeNullOrWhiteSpaceOrEmpty()
+    public void Should_not_throw_with_correct_input_on_NotBeNullOrWhiteSpaceOrEmpty()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -123,7 +123,7 @@ public class StringValidationTests
     }
 
     [Fact]
-    public async Task Should_throw_with_wrong_input_on_BeNullOrWhiteSpaceOrEmpty()
+    public void Should_throw_with_wrong_input_on_BeNullOrWhiteSpaceOrEmpty()
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -142,7 +142,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(null), InlineData(" "), InlineData("")]
-    public async Task Should_not_throw_with_correct_input_on_BeNullOrWhiteSpaceOrEmpty(string input)
+    public void Should_not_throw_with_correct_input_on_BeNullOrWhiteSpaceOrEmpty(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -160,7 +160,7 @@ public class StringValidationTests
     
     [Theory]
     [InlineData(null, "hey")]
-    public async Task Should_throw_with_null_input_on_BeEqual(string input, string expectedValue)
+    public void Should_throw_with_null_input_on_BeEqual(string input, string expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -179,7 +179,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("not hey", "hey")]
-    public async Task Should_throw_with_wrong_input_on_BeEqual(string input, string expectedValue)
+    public void Should_throw_with_wrong_input_on_BeEqual(string input, string expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -198,7 +198,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey", "hey")]
-    public async Task Should_not_throw_with_correct_input_on_BeEqual(string input, string expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeEqual(string input, string expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -216,7 +216,7 @@ public class StringValidationTests
     
     [Theory]
     [InlineData(null, 5)]
-    public async Task Should_throw_with_null_input_on_HaveExactLength(string input, int expectedValue)
+    public void Should_throw_with_null_input_on_HaveExactLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -235,7 +235,7 @@ public class StringValidationTests
     
     [Theory]
     [InlineData("hey", 5)]
-    public async Task Should_throw_with_wrong_input_on_HaveExactLength(string input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_HaveExactLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -254,7 +254,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey", 3)]
-    public async Task Should_not_throw_with_correct_input_on_HaveExactLength(string input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_HaveExactLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -272,7 +272,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(null, 5)]
-    public async Task Should_throw_with_null_input_on_HaveGreaterLength(string input, int expectedValue)
+    public void Should_throw_with_null_input_on_HaveGreaterLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -291,7 +291,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey", 5), InlineData("hey", 3)]
-    public async Task Should_throw_with_wrong_input_on_HaveGreaterLength(string input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_HaveGreaterLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -310,7 +310,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey", 2)]
-    public async Task Should_not_throw_with_correct_input_on_HaveGreaterLength(string input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_HaveGreaterLength(string input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -328,7 +328,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(null)]
-    public async Task Should_throw_with_wrong_input_on_NotBeNull(string input)
+    public void Should_throw_with_wrong_input_on_NotBeNull(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -349,7 +349,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey")]
-    public async Task Should_not_throw_with_correct_input_on_NotBeNull(string input)
+    public void Should_not_throw_with_correct_input_on_NotBeNull(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -369,7 +369,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData("hey")]
-    public async Task Should_throw_with_wrong_input_on_BeNull(string input)
+    public void Should_throw_with_wrong_input_on_BeNull(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -390,7 +390,7 @@ public class StringValidationTests
 
     [Theory]
     [InlineData(null)]
-    public async Task Should_not_throw_with_correct_input_on_BeNull(string input)
+    public void Should_not_throw_with_correct_input_on_BeNull(string input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();

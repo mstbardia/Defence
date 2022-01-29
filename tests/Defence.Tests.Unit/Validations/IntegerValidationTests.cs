@@ -14,7 +14,7 @@ public class IntegerValidationTests
 {
     [Theory]
     [InlineData(5, 5), InlineData(6, 5)]
-    public async Task Should_throw_with_wrong_input_on_BeLessThan(int input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_BeLessThan(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -35,7 +35,7 @@ public class IntegerValidationTests
 
     [Theory]
     [InlineData(4, 5)]
-    public async Task Should_not_throw_with_correct_input_on_BeLessThan(int input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeLessThan(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -56,7 +56,7 @@ public class IntegerValidationTests
 
     [Theory]
     [InlineData(6, 5)]
-    public async Task Should_throw_with_wrong_input_on_BeLessThanOrEqual(int input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_BeLessThanOrEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -77,7 +77,7 @@ public class IntegerValidationTests
 
     [Theory]
     [InlineData(5, 5), InlineData(4, 5)]
-    public async Task Should_not_throw_with_correct_input_on_BeLessThanOrEqual(int input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeLessThanOrEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -98,7 +98,7 @@ public class IntegerValidationTests
 
     [Theory]
     [InlineData(5, 5), InlineData(4, 5)]
-    public async Task Should_throw_with_wrong_input_on_BeGreaterThan(int input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_BeGreaterThan(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -119,7 +119,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(6, 5)]
-    public async Task Should_not_throw_with_correct_input_on_BeGreaterThan(int input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeGreaterThan(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -139,7 +139,7 @@ public class IntegerValidationTests
 
     [Theory]
     [InlineData(4, 5)]
-    public async Task Should_throw_with_wrong_input_on_BeGreaterThanOrEqual(int input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_BeGreaterThanOrEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -160,7 +160,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(5, 5), InlineData(6, 5)]
-    public async Task Should_not_throw_with_correct_input_on_BeGreaterThanOrEqual(int input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeGreaterThanOrEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -180,7 +180,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(4, 5),InlineData(6, 5)]
-    public async Task Should_throw_with_wrong_input_on_BeEqual(int input, int expectedValue)
+    public void Should_throw_with_wrong_input_on_BeEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -201,7 +201,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(5, 5)]
-    public async Task Should_not_throw_with_correct_input_on_BeEqual(int input, int expectedValue)
+    public void Should_not_throw_with_correct_input_on_BeEqual(int input, int expectedValue)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -222,7 +222,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(-1)]
-    public async Task Should_throw_with_wrong_input_on_BePositive(int input)
+    public void Should_throw_with_wrong_input_on_BePositive(int input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -243,7 +243,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(5),InlineData(0)]
-    public async Task Should_not_throw_with_correct_input_on_BePositive(int input)
+    public void Should_not_throw_with_correct_input_on_BePositive(int input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -264,7 +264,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(1)]
-    public async Task Should_throw_with_wrong_input_on_BeNegative(int input)
+    public void Should_throw_with_wrong_input_on_BeNegative(int input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -285,7 +285,7 @@ public class IntegerValidationTests
     
     [Theory]
     [InlineData(-5),InlineData(0)]
-    public async Task Should_not_throw_with_correct_input_on_BeNegative(int input)
+    public void Should_not_throw_with_correct_input_on_BeNegative(int input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
