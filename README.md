@@ -8,7 +8,7 @@
   <br>
 </h1>
 
-ASP.NET Core Validations For HTTP Requests
+ASP.NET Core Validation For HTTP Requests
 
 Defence is a library that helps you to validate your request bounded model by fluent implementations.
 
