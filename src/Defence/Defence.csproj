@@ -4,7 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
-        <PackageVersion>0.1.0</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0</Version>
         <Authors>Bardia Mostafavi</Authors>
         <Title>Defence</Title>
         <Description>Defence is a library that helps you to validate your request bounded input model by fluent implementations.</Description>
