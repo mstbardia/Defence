@@ -14,7 +14,7 @@ Defence is a library that helps you to validate your request bounded input model
 
 <p align="left">       
   <a href="https://github.com/mstbardia/Defence/actions/workflows/publish-package.yml">
-    <img src="https://github.com/mstbardia/Defence/actions/workflows/publish-package.yml/badge.svg?branch=main">
+    <img src="https://github.com/mstbardia/Defence/actions/workflows/publish-packages.yml/badge.svg?branch=main">
   </a>
   <a href="https://www.nuget.org/packages/Defence">
     <img src="https://img.shields.io/nuget/v/Defence?style=plastic">
