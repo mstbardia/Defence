@@ -12,6 +12,15 @@ ASP.NET Core Validation For HTTP Requests
 
 Defence is a library that helps you to validate your request bounded input model by fluent implementations.
 
+<p align="left">       
+  <a href="https://github.com/mstbardia/Defence/actions/workflows/publish-package.yml">
+    <img src="https://github.com/mstbardia/Defence/actions/workflows/publish-package.yml/badge.svg?branch=main">
+  </a>
+  <a href="https://www.nuget.org/packages/Defence">
+    <img src="https://img.shields.io/nuget/v/Defence?style=plastic">
+  </a>
+</p>
+
 ### Overview
 - You can use _**Dependency Injection (DI)**_ . So you can easily do whatever you want for
 validating your models before calling Actions. Actually it happens exactly when model bounded by MVC.
