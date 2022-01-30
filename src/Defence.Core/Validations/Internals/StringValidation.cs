@@ -8,7 +8,7 @@ namespace Defence.Core.Validations.Internals;
 /// <summary>
 /// implementation of <see cref="IStringValidation" />
 /// </summary>
-internal class StringValidation : DefenceProperty<string>, IStringValidation, INullValidation<IStringValidation>
+internal class StringValidation : DefenceProperty<string>, IStringValidation
 {
     private readonly IDefenceErrorHandler _defenceErrorHandler;
 

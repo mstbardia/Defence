@@ -21,6 +21,7 @@ internal class DefenceMvcOptions : IConfigureOptions<MvcOptions>
 
     public void Configure(MvcOptions options)
     {
+        options.ModelValidatorProviders.Clear(); // bypass nullable reference type default validations
         options.Filters.Add(new DefenceActionFilter(_serviceProvider, _defenceErrorHandler));
     }
 }

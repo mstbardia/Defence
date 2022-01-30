@@ -1,9 +1,11 @@
-﻿namespace Defence.Core.Validations.Abstractions;
+﻿using Defence.Core.Validations.Abstractions.Nullables.Base;
+
+namespace Defence.Core.Validations.Abstractions;
 
 /// <summary>
 /// interface which validates fields with string type
 /// </summary>
-public interface IStringValidation
+public interface IStringValidation : INullValidation<IStringValidation>
 {
     /// <summary>
     /// validates your field for not null or not empty or not filled by whitespace condition
