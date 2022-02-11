@@ -37,7 +37,6 @@ five rules run and Defence collects their result even if one of them failed. (wh
 
 ```sh
 dotnet add package Defence
-dotnet add package Defence.Core
 ```
 ### Usage Guide
 

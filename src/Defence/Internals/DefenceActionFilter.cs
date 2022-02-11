@@ -1,13 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Defence.Abstractions;
+using Defence.Internals.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using Defence.Core;
-using Defence.Core.Abstractions;
-using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Internals;
 
@@ -25,7 +20,7 @@ internal class DefenceActionFilter : ActionFilterAttribute
     {
         _serviceProvider = serviceProvider;
         _defenceErrorHandler = defenceErrorHandler;
-        Core.Defence.Configure(_defenceErrorHandler);
+        Defence.Configure(_defenceErrorHandler);
     }
 
 

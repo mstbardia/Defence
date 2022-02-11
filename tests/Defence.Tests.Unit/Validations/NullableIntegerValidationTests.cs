@@ -1,12 +1,11 @@
-﻿using System.Threading.Tasks;
-using AutoFixture;
+﻿using AutoFixture;
+using Defence.Exceptions;
+using Defence.Internals.Abstractions;
+using Defence.Internals.Handlers;
+using Defence.Validations;
+using Defence.Validations.Extensions.Integer;
 using FluentAssertions;
 using NSubstitute;
-using Defence.Core.Exceptions;
-using Defence.Core.Handlers.Internals;
-using Defence.Core.Handlers.Internals.Abstractions;
-using Defence.Core.Validations.Internals;
-using Defence.Core.Validations.Internals.Nullables;
 using Xunit;
 
 namespace Defence.Tests.Unit.Validations;
@@ -24,7 +23,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -45,7 +44,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -66,7 +65,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -88,7 +87,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -109,7 +108,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -130,7 +129,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -153,7 +152,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -174,7 +173,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -195,7 +194,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -216,7 +215,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -237,7 +236,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -258,7 +257,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -279,7 +278,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -300,7 +299,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -321,7 +320,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -342,7 +341,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -363,7 +362,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -384,7 +383,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -405,7 +404,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();
@@ -426,7 +425,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();
@@ -447,7 +446,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();
@@ -467,7 +466,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -488,7 +487,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -508,7 +507,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();
@@ -529,7 +528,7 @@ public class NullableIntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new NullableIntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new NullableIntegerValidation(new DefenceProperty<int?>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();

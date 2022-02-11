@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defence.Sample.WebApi", "sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defence.Tests.Unit", "tests\Defence.Tests.Unit\Defence.Tests.Unit.csproj", "{2B142261-5794-4ADD-AF67-9312502A53EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defence.Core", "src\Defence.Core\Defence.Core.csproj", "{782AF619-0157-41DE-9D9F-AE8CBD439138}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{FF79A743-B42D-4A40-A383-5F1210C8C5F5}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
@@ -36,7 +34,6 @@ Global
 		{322BCD85-9E9A-4548-82A3-C78899935D09} = {3D5D4C97-1A8A-43E7-A8D6-CCA33805C76E}
 		{A90B4FB8-C676-4171-AB54-EB12AC6E68E0} = {21A060EC-57FE-4E01-BB35-589B4E804135}
 		{2B142261-5794-4ADD-AF67-9312502A53EA} = {F5AA616E-B7F3-43EA-887B-1F17736FDACB}
-		{782AF619-0157-41DE-9D9F-AE8CBD439138} = {3D5D4C97-1A8A-43E7-A8D6-CCA33805C76E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{322BCD85-9E9A-4548-82A3-C78899935D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,9 +48,5 @@ Global
 		{2B142261-5794-4ADD-AF67-9312502A53EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B142261-5794-4ADD-AF67-9312502A53EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B142261-5794-4ADD-AF67-9312502A53EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{782AF619-0157-41DE-9D9F-AE8CBD439138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{782AF619-0157-41DE-9D9F-AE8CBD439138}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{782AF619-0157-41DE-9D9F-AE8CBD439138}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{782AF619-0157-41DE-9D9F-AE8CBD439138}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

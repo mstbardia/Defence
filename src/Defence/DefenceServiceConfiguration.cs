@@ -1,5 +1,3 @@
-using System;
-
 namespace Defence;
 
 public class DefenceServiceConfiguration

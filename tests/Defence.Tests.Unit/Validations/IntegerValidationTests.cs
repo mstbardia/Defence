@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using AutoFixture;
+﻿using AutoFixture;
+using Defence.Exceptions;
+using Defence.Internals.Abstractions;
+using Defence.Internals.Handlers;
+using Defence.Validations;
+using Defence.Validations.Extensions.Integer;
 using FluentAssertions;
 using NSubstitute;
-using Defence.Core.Exceptions;
-using Defence.Core.Handlers.Internals;
-using Defence.Core.Handlers.Internals.Abstractions;
-using Defence.Core.Validations.Internals;
 using Xunit;
 
 namespace Defence.Tests.Unit.Validations;
@@ -23,7 +23,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -44,7 +44,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -65,7 +65,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -86,7 +86,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -107,7 +107,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -128,7 +128,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -148,7 +148,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -169,7 +169,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -189,7 +189,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -210,7 +210,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -231,7 +231,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -252,7 +252,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -273,7 +273,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();
@@ -294,7 +294,7 @@ public class IntegerValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new IntegerValidation(fakeField, input, defenceErrorHandler);
+        var validator = new IntegerValidation(new DefenceProperty<int>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();

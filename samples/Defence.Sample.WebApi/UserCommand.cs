@@ -8,6 +8,10 @@ public class UserCommand
     
     public int Age { get; set; }
     public int? DD { get; set; }
+
+
+
+    public double Dob { get; set; }
 }
  
 

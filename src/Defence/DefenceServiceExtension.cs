@@ -1,8 +1,6 @@
-﻿using System;
-using Defence.Core;
-using Defence.Core.Abstractions;
-using Defence.Core.Handlers.Internals;
-using Defence.Core.Handlers.Internals.Abstractions;
+﻿using Defence.Abstractions;
+using Defence.Internals.Abstractions;
+using Defence.Internals.Handlers;
 using Defence.Internals.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;

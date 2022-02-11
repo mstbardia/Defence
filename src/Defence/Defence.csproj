@@ -26,8 +26,7 @@
     
     
     <ItemGroup>
-        <None Include="..\..\assets\logo\defence.png" Pack="true" PackagePath=""/>
-        <ProjectReference Include="..\Defence.Core\Defence.Core.csproj" />
+        <None Include="..\..\assets\logo\defence.png" Pack="true" PackagePath="" />
         <InternalsVisibleTo Include="Defence.Tests.Unit" />
         <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
     </ItemGroup>

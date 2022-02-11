@@ -1,11 +1,9 @@
-﻿using System.Threading.Tasks;
-using AutoFixture;
-using Defence.Core;
+﻿using AutoFixture;
+using Defence.Exceptions;
+using Defence.Internals.Abstractions;
+using Defence.Internals.Handlers;
 using FluentAssertions;
 using NSubstitute;
-using Defence.Core.Exceptions;
-using Defence.Core.Handlers.Internals;
-using Defence.Core.Handlers.Internals.Abstractions;
 using Xunit;
 
 namespace Defence.Tests.Unit;

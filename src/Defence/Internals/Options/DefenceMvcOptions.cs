@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Defence.Internals.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Defence.Core.Handlers.Internals.Abstractions;
 
 namespace Defence.Internals.Options;
 
