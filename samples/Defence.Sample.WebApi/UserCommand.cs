@@ -3,15 +3,21 @@
 public class UserCommand
 {
     public string Name { get; set; }
+     
     
-    public string Family { get; set; }
+    public int Integer { get; set; }
+    public int? NInteger { get; set; }
+
+
+
+    public double Double { get; set; }
+    public double? NDouble { get; set; }
     
-    public int Age { get; set; }
-    public int? DD { get; set; }
+    
+    
+    public long Long { get; set; }
+    public long? NLong { get; set; }
 
-
-
-    public double Dob { get; set; }
 }
  
 

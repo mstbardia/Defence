@@ -38,7 +38,49 @@ public static class Defence
     {
         return new NullableIntegerValidation(new DefenceProperty<int?>(fieldName, input), _defenceErrorHandler);
     }
-
+    
+    
+    /// <summary>
+    /// Returns an <see cref="NullableDoubleValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
+    public static DoubleValidation Must(this double input, string fieldName)
+    {
+        return new DoubleValidation(new DefenceProperty<double>(fieldName, input), _defenceErrorHandler);
+    }
+    
+    /// <summary>
+    /// Returns an <see cref="NullableDoubleValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
+    public static NullableDoubleValidation Must(this double? input, string fieldName)
+    {
+        return new NullableDoubleValidation(new DefenceProperty<double?>(fieldName, input), _defenceErrorHandler);
+    }
+    
+    
+    /// <summary>
+    /// Returns an <see cref="LongValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
+    public static LongValidation Must(this long input, string fieldName)
+    {
+        return new LongValidation(new DefenceProperty<long>(fieldName, input), _defenceErrorHandler);
+    }
+    
+    /// <summary>
+    /// Returns an <see cref="NullableLongValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
+    public static NullableLongValidation Must(this long? input, string fieldName)
+    {
+        return new NullableLongValidation(new DefenceProperty<long?>(fieldName, input), _defenceErrorHandler);
+    }
+    
     /// <summary>
     /// Returns an <see cref="StringValidation" /> object that can be used to validate
     /// </summary>
