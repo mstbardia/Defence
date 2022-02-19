@@ -4,7 +4,6 @@ using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
 using Defence.Validations;
 using Defence.Validations.Extensions.Double;
-using Defence.Validations.Extensions.Integer;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;

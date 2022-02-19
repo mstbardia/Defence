@@ -91,4 +91,16 @@ public static class Defence
     {
         return new StringValidation(new DefenceProperty<string>(fieldName, input), _defenceErrorHandler);
     }
+    
+    
+    /// <summary>
+    /// Returns an <see cref="StringCollectionValidation" /> object that can be used to validate
+    /// </summary>
+    /// <param name="input">your input field</param>
+    /// <param name="fieldName">your field name to specify in error result</param>
+    /// <returns></returns>
+    public static StringCollectionValidation Must(this IEnumerable<string> input, string fieldName)
+    {
+        return new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fieldName, input), _defenceErrorHandler);
+    }
 }

@@ -2,13 +2,13 @@
 
 namespace Defence.Validations.Abstractions;
 
-public abstract class GenericValidation<T>
+public abstract class BaseValidation<T>
 {
     private readonly DefenceProperty<T> _input;
 
     private readonly IDefenceErrorHandler _defenceErrorHandler;
 
-    internal GenericValidation(DefenceProperty<T> input, IDefenceErrorHandler defenceErrorHandler)
+    internal BaseValidation(DefenceProperty<T> input, IDefenceErrorHandler defenceErrorHandler)
     {
         _input = input;
         _defenceErrorHandler = defenceErrorHandler;

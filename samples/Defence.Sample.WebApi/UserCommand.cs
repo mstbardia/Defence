@@ -2,21 +2,26 @@
 
 public class UserCommand
 {
-    public string Name { get; set; }
-     
-    
-    public int Integer { get; set; }
-    public int? NInteger { get; set; }
+       
+    public int IntegerExample { get; set; }
+    public int? NIntegerExample { get; set; }
 
 
 
-    public double Double { get; set; }
-    public double? NDouble { get; set; }
+    public double DoubleExample { get; set; }
+    public double? NDoubleExample { get; set; }
     
     
     
-    public long Long { get; set; }
-    public long? NLong { get; set; }
+    public long LongExample { get; set; }
+    public long? NLongExample { get; set; }
+    
+    
+    
+    public string StringExample { get; set; }
+
+    
+    public IEnumerable<string> StringCollectionExample { get; set; }
 
 }
  

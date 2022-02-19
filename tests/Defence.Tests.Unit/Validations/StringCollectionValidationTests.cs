@@ -1,20 +1,21 @@
-﻿using AutoFixture;
+﻿using System.Collections.Generic;
+using AutoFixture;
 using Defence.Exceptions;
 using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
 using Defence.Validations;
-using Defence.Validations.Extensions.Double;
+using Defence.Validations.Extensions.StringCollection;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
 
 namespace Defence.Tests.Unit.Validations;
 
-public class DoubleValidationTests
+public class StringCollectionValidationTests
 {
     [Theory]
-    [InlineData(5.11, 5.11), InlineData(5.23, 5.21), InlineData(6, 5)]
-    public void Should_throw_with_wrong_input_on_BeLessThan(double input, double expectedValue)
+    [InlineData(null)]
+    public void Should_throw_with_wrong_input_on_NotBeNull(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -23,19 +24,20 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
-        var result = () => validator.BeLessThan(expectedValue);
+        var result = () => validator.NotBeNull();
 
         // Assert
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be less than {expectedValue}");
+            .WithMessage($"{fakeField} : Must not be null");
     }
 
+    
     [Theory]
-    [InlineData(4.231, 4.232)]
-    public void Should_not_throw_with_correct_input_on_BeLessThan(double input, double expectedValue)
+    [InlineData("hi", "hoy")]
+    public void Should_not_throw_with_correct_input_on_NotBeNull(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -44,10 +46,10 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
-        var result = () => validator.BeLessThan(expectedValue);
+        var result = () => validator.NotBeNull();
 
         // Assert
         result.Should().NotThrow();
@@ -55,8 +57,8 @@ public class DoubleValidationTests
 
 
     [Theory]
-    [InlineData(6.23, 6.21)]
-    public void Should_throw_with_wrong_input_on_BeLessThanOrEqual(double input, double expectedValue)
+    [InlineData("hi", "hoy")]
+    public void Should_throw_with_wrong_input_on_BeNull(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -65,19 +67,20 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
-        var result = () => validator.BeLessThanOrEqual(expectedValue);
+        var result = () => validator.BeNull();
 
         // Assert
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be less than or Equal to {expectedValue}");
+            .WithMessage($"{fakeField} : Must be null");
     }
 
+    
     [Theory]
-    [InlineData(5.556, 5.556), InlineData(4.32, 4.34), InlineData(4, 5)]
-    public void Should_not_throw_with_correct_input_on_BeLessThanOrEqual(double input, double expectedValue)
+    [InlineData(null)]
+    public void Should_not_throw_with_correct_input_on_BeNull(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -86,19 +89,145 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
-        var result = () => validator.BeLessThanOrEqual(expectedValue);
+        var result = () => validator.BeNull();
+
+        // Assert
+        result.Should().NotThrow();
+    }
+ 
+    
+    
+    [Theory]
+    [InlineData()]
+    public void Should_throw_with_wrong_input_on_NotBeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.NotBeEmpty();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must not be empty");
+    }
+
+    [Theory]
+    [InlineData(null)]
+    public void Should_throw_with_null_input_on_NotBeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.NotBeEmpty();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must not be empty But it is Null");
+    }
+    
+    [Theory]
+    [InlineData("hi")]
+    public void Should_not_throw_with_correct_input_on_NotBeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.NotBeEmpty();
+
+        // Assert
+        result.Should().NotThrow();
+    }
+    
+    [Theory]
+    [InlineData("hey")]
+    public void Should_throw_with_wrong_input_on_BeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.BeEmpty();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must be empty");
+    }
+
+    [Theory]
+    [InlineData(null)]
+    public void Should_throw_with_null_input_on_BeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.BeEmpty();
+
+        // Assert
+        result.Should().ThrowExactly<DefenceBadRequestException>()
+            .WithMessage($"{fakeField} : Must be empty But it is Null");
+    }
+    
+    [Theory]
+    [InlineData()]
+    public void Should_not_throw_with_correct_input_on_BeEmpty(params string[] input)
+    {
+        // Arrange
+        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
+        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
+        defenceContextHandler.ShouldThrowExceptions().Returns(true);
+        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
+        var fakeField = new Fixture().Create<string>();
+
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+
+        // Act
+        var result = () => validator.BeEmpty();
 
         // Assert
         result.Should().NotThrow();
     }
 
-
+    
     [Theory]
-    [InlineData(5.23, 5.23), InlineData(5.11, 5.14), InlineData(4, 5)]
-    public void Should_throw_with_wrong_input_on_BeGreaterThan(double input, double expectedValue)
+    [InlineData("hey","hoy")]
+    public void Should_throw_with_wrong_input_on_Contains(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -107,19 +236,19 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
+        var containValue = "Bye";
         // Act
-        var result = () => validator.BeGreaterThan(expectedValue);
+        var result = () => validator.Contains(containValue);
 
         // Assert
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be greater than {expectedValue}");
+            .WithMessage($"{fakeField} : Must contains {containValue}");
     }
-
     [Theory]
-    [InlineData(6.2, 6.1), InlineData(4, 3)]
-    public void Should_not_throw_with_correct_input_on_BeGreaterThan(double input, double expectedValue)
+    [InlineData(null)]
+    public void Should_throw_with_null_input_on_Contains(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -128,39 +257,20 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
+        var containValue = "Bye";
         // Act
-        var result = () => validator.BeGreaterThan(expectedValue);
-
-        // Assert
-        result.Should().NotThrow();
-    }
-
-    [Theory]
-    [InlineData(4.23, 4.25), InlineData(3, 4)]
-    public void Should_throw_with_wrong_input_on_BeGreaterThanOrEqual(double input, double expectedValue)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BeGreaterThanOrEqual(expectedValue);
-
+        var result = () => validator.Contains(containValue);
+        
         // Assert
         result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be greater than or Equal to {expectedValue}");
+            .WithMessage($"{fakeField} : Must contains {containValue} But it is Null");
     }
-
+    
     [Theory]
-    [InlineData(5.16, 5.16), InlineData(4, 4), InlineData(5, 4), InlineData(5.15, 5.14)]
-    public void Should_not_throw_with_correct_input_on_BeGreaterThanOrEqual(double input, double expectedValue)
+    [InlineData("hey","hoy")]
+    public void Should_not_throw_with_correct_input_on_Contains(params string[] input)
     {
         // Arrange
         var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
@@ -169,135 +279,12 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        
+        var containValue = "hey";
 
         // Act
-        var result = () => validator.BeGreaterThanOrEqual(expectedValue);
-
-        // Assert
-        result.Should().NotThrow();
-    }
-
-    [Theory]
-    [InlineData(4.14, 4.15), InlineData(6, 5)]
-    public void Should_throw_with_wrong_input_on_BeEqual(double input, double expectedValue)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BeEqual(expectedValue);
-
-        // Assert
-        result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be equal to {expectedValue}");
-    }
-
-    [Theory]
-    [InlineData(5.262, 5.262),InlineData(4,4)]
-    public void Should_not_throw_with_correct_input_on_BeEqual(double input, double expectedValue)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BeEqual(expectedValue);
-
-        // Assert
-        result.Should().NotThrow();
-    }
-
-
-    [Theory]
-    [InlineData(-1.25), InlineData(-1)]
-    public void Should_throw_with_wrong_input_on_BePositive(double input)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BePositive();
-
-        // Assert
-        result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be positive");
-    }
-
-    [Theory]
-    [InlineData(5.556), InlineData(4), InlineData(0)]
-    public void Should_not_throw_with_correct_input_on_BePositive(double input)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BePositive();
-
-        // Assert
-        result.Should().NotThrow();
-    }
-
-
-    [Theory]
-    [InlineData(1.236), InlineData(1)]
-    public void Should_throw_with_wrong_input_on_BeNegative(double input)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BeNegative();
-
-        // Assert
-        result.Should().ThrowExactly<DefenceBadRequestException>()
-            .WithMessage($"{fakeField} : Must be negative");
-    }
-
-    [Theory]
-    [InlineData(-5.233), InlineData(-4), InlineData(0)]
-    public void Should_not_throw_with_correct_input_on_BeNegative(double input)
-    {
-        // Arrange
-        var defenceContextHandler = Substitute.For<IDefenceContextHandler>();
-        defenceContextHandler.GetRequestTraceId().Returns(new Fixture().Create<string>());
-        defenceContextHandler.ShouldThrowExceptions().Returns(true);
-        var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
-        var fakeField = new Fixture().Create<string>();
-
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
-
-        // Act
-        var result = () => validator.BeNegative();
+        var result = () => validator.Contains(containValue);
 
         // Assert
         result.Should().NotThrow();

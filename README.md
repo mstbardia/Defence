@@ -8,9 +8,10 @@
   <br>
 </h1>
 
-ASP.NET Core Validation For HTTP Requests
+ASP.NET Core Model Validation For HTTP Requests.
 
-Defence is a library that helps you to validate your request bounded input model by fluent implementations.
+Defence is a library that helps you to validate your request input model which is made
+by model binding.
 
 <p align="left">       
   <a href="https://github.com/mstbardia/Defence/actions/workflows/publish-package.yml">
@@ -28,8 +29,8 @@ For example you can inject your database repository and check some ids.
 - It creates chain of violations result per field , so if you set five rules on your field , all
 five rules run and Defence collects their result even if one of them failed. (when throw exception is false)
 - It uses fluent api so you can put your implementations on where ever you want in your project.
-- It is based on the MVC FilterActions so you can use it in architectures like MVC,CQRS.
-- on Net 6.
+- It is based on the MVC FilterAction feature so you can use it in architectures like MVC,CQRS.
+- Based on Net 6.
 - **New features are coming...**
 
 
@@ -48,10 +49,12 @@ _Implementation of Defence validator :_
     {
         public Task Validate(UserCommand input)
         {                        
-            input.Family.Must(nameof(input.Family)).HaveExactLength(5).BeEqual("Hey").NotBeNullOrEmpty();
-    
-            input.Age.Must(nameof(input.Age)).LessThan(2);
-            
+            input.StringExample.Must(nameof(input.StringExample)).BeEqual("hi");
+            input.NIntegerExample.Must(nameof(input.NIntegerExample)).BeEqual(2);
+            input.DoubleExample.Must(nameof(input.DoubleExample)).BeEqual(1.42);
+            input.LongExample.Must(nameof(input.LongExample)).BeGreaterThan(5).BePositive();
+            input.StringCollectionExample.Must(nameof(input.StringCollectionExample)).Contains("hi");
+                 
             return Task.CompletedTask;
         }
     }

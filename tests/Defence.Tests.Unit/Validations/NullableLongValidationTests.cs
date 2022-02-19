@@ -3,7 +3,6 @@ using Defence.Exceptions;
 using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
 using Defence.Validations;
-using Defence.Validations.Extensions.Integer;
 using Defence.Validations.Extensions.Long;
 using FluentAssertions;
 using NSubstitute;

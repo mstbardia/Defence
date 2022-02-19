@@ -3,7 +3,7 @@ using Defence.Validations.Abstractions;
 
 namespace Defence.Validations;
 
-public class NullableDoubleValidation : GenericValidation<Double?>
+public class NullableDoubleValidation : BaseValidation<Double?>
 {
     internal NullableDoubleValidation(DefenceProperty<Double?> property, IDefenceErrorHandler defenceErrorHandler) : base(property, defenceErrorHandler)
     {
