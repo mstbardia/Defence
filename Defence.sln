@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{FF
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		README.md = README.md
 		.github\workflows\publish-packages.yml = .github\workflows\publish-packages.yml
+		Defence.sln = Defence.sln
 	EndProjectSection
 EndProject
 Global
