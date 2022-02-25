@@ -1,11 +1,13 @@
-﻿namespace Defence.Validations.Extensions.String;
+﻿using Defence.Validations.Abstractions;
+
+namespace Defence.Validations.Extensions.String;
 
 public static class HaveLessLengthExtension
 {
-    public static StringValidation HaveLessLength(this StringValidation stringValidation, int value)
+    public static BaseValidation<string> HaveLessLength(this BaseValidation<string> validation, int value)
     {
-        stringValidation.Validate(s => s.Length < value, $"Must have less length than {value}");
+        validation.Validate(s => s.Length < value, $"Must have less length than {value}");
 
-        return stringValidation;
+        return validation;
     }
 }

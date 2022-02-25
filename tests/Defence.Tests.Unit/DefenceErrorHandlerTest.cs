@@ -33,7 +33,7 @@ public class DefenceErrorHandlerTest
 
         // Act
         var result = defenceErrorHandler.GetCurrentRequestResult();
-
+        
         // Assert
         result.DefenceErrors.Should().BeEquivalentTo(new[] { "f1 : e1"});
         result.TraceId.Should().Be(firstRequestTraceId);

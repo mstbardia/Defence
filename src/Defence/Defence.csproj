@@ -5,10 +5,10 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.3.0</Version>
+        <Version>0.4.0</Version>
         <Authors>Bardia Mostafavi</Authors>
         <Title>Defence</Title>
-        <Description>Defence is a library that helps you to validate your request bounded input model by fluent implementations.</Description>
+        <Description>Defence is a library that helps you to validate your request input model that is made by model binding.</Description>
         <RepositoryUrl>https://github.com/mstbardia/Defence</RepositoryUrl>
         <PackageProjectUrl>https://github.com/mstbardia/Defence</PackageProjectUrl>
         <PackageTags>validation;mvc;fluentapi;filteraction;</PackageTags>

@@ -1,11 +1,13 @@
-﻿namespace Defence.Validations.Extensions.String;
+﻿using Defence.Validations.Abstractions;
+
+namespace Defence.Validations.Extensions.String;
 
 public static class BeNullOrWhiteSpaceOrEmptyExtension
 {
-    public static StringValidation BeNullOrWhiteSpaceOrEmpty(this StringValidation stringValidation)
+    public static BaseValidation<string> BeNullOrWhiteSpaceOrEmpty(this BaseValidation<string> validation)
     {
-        stringValidation.Validate(string.IsNullOrWhiteSpace, "Must be null or whitespace or empty",true);
+        validation.Validate(string.IsNullOrWhiteSpace, "Must be null or whitespace or empty",true);
 
-        return stringValidation;
+        return validation;
     }
 }

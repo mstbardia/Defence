@@ -2,7 +2,8 @@
 using Defence.Exceptions;
 using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
-using Defence.Validations;
+using Defence.Validations.Abstractions;
+using Defence.Validations.Extensions;
 using Defence.Validations.Extensions.String;
 using FluentAssertions;
 using NSubstitute;
@@ -23,7 +24,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.NotBeNullOrEmpty();
 
@@ -42,7 +43,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.NotBeNullOrEmpty();
 
@@ -60,7 +61,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeNullOrEmpty();
 
@@ -79,7 +80,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeNullOrEmpty();
 
@@ -97,7 +98,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.NotBeNullOrWhiteSpaceOrEmpty();
 
@@ -115,7 +116,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,"input"), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,"input"), defenceErrorHandler);
 
         var result = () => validator.NotBeNullOrWhiteSpaceOrEmpty();
 
@@ -132,7 +133,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,"input"), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,"input"), defenceErrorHandler);
 
         var result = () => validator.BeNullOrWhiteSpaceOrEmpty();
 
@@ -151,7 +152,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeNullOrWhiteSpaceOrEmpty();
 
@@ -169,7 +170,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeEqual(expectedValue);
 
@@ -188,7 +189,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeEqual(expectedValue);
 
@@ -207,7 +208,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.BeEqual(expectedValue);
 
@@ -225,7 +226,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveExactLength(expectedValue);
 
@@ -244,7 +245,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveExactLength(expectedValue);
 
@@ -263,7 +264,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveExactLength(expectedValue);
 
@@ -281,7 +282,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveGreaterLength(expectedValue);
 
@@ -300,7 +301,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveGreaterLength(expectedValue);
 
@@ -319,7 +320,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         var result = () => validator.HaveGreaterLength(expectedValue);
 
@@ -337,7 +338,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -358,7 +359,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -378,7 +379,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();
@@ -399,7 +400,7 @@ public class StringValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringValidation(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<string>(new DefenceProperty<string>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();

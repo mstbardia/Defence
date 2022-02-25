@@ -3,8 +3,8 @@ using AutoFixture;
 using Defence.Exceptions;
 using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
-using Defence.Validations;
-using Defence.Validations.Extensions.StringCollection;
+using Defence.Validations.Abstractions;
+using Defence.Validations.CollectionExtensions;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
@@ -24,7 +24,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -46,7 +46,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeNull();
@@ -67,7 +67,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();
@@ -89,7 +89,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNull();
@@ -111,7 +111,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeEmpty();
@@ -132,7 +132,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeEmpty();
@@ -153,7 +153,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.NotBeEmpty();
@@ -173,7 +173,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEmpty();
@@ -194,7 +194,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEmpty();
@@ -215,7 +215,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEmpty();
@@ -236,7 +236,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         var containValue = "Bye";
         // Act
@@ -257,7 +257,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
 
         var containValue = "Bye";
         // Act
@@ -279,7 +279,7 @@ public class StringCollectionValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new StringCollectionValidation(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
+        var validator = new BaseValidation<IEnumerable<string>>(new DefenceProperty<IEnumerable<string>>(fakeField,input), defenceErrorHandler);
         
         var containValue = "hey";
 

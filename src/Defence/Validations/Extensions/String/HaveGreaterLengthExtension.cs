@@ -1,11 +1,13 @@
-﻿namespace Defence.Validations.Extensions.String;
+﻿using Defence.Validations.Abstractions;
+
+namespace Defence.Validations.Extensions.String;
 
 public static class HaveGreaterLengthExtension
 {
-    public static StringValidation HaveGreaterLength(this StringValidation stringValidation, int value)
+    public static BaseValidation<string> HaveGreaterLength(this BaseValidation<string> validation, int value)
     {
-        stringValidation.Validate(s => s.Length > value, $"Must have greater length than {value}");
+        validation.Validate(s => s.Length > value, $"Must have greater length than {value}");
 
-        return stringValidation;
+        return validation;
     }
 }

@@ -1,11 +1,13 @@
-﻿namespace Defence.Validations.Extensions.String;
+﻿using Defence.Validations.Abstractions;
+
+namespace Defence.Validations.Extensions.String;
 
 public static class HaveExactLengthExtension
 {
-    public static StringValidation HaveExactLength(this StringValidation stringValidation, int value)
+    public static BaseValidation<string> HaveExactLength(this BaseValidation<string> validation, int value)
     {
-        stringValidation.Validate(s => s.Length == value, $"Must have exact length {value}");
+        validation.Validate(s => s.Length == value, $"Must have exact length {value}");
 
-        return stringValidation;
+        return validation;
     }
 }

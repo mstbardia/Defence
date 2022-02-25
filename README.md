@@ -49,12 +49,21 @@ _Implementation of Defence validator :_
     {
         public Task Validate(UserCommand input)
         {                        
-            input.StringExample.Must(nameof(input.StringExample)).BeEqual("hi");
-            input.NIntegerExample.Must(nameof(input.NIntegerExample)).BeEqual(2);
-            input.DoubleExample.Must(nameof(input.DoubleExample)).BeEqual(1.42);
-            input.LongExample.Must(nameof(input.LongExample)).BeGreaterThan(5).BePositive();
-            input.StringCollectionExample.Must(nameof(input.StringCollectionExample)).Contains("hi");
-                 
+            input.BoolExample.Must(nameof(input.BoolExample)).BeEqual(true);
+            input.ByteExample.Must(nameof(input.ByteExample)).BeGreaterThan((byte)1);
+            input.CharExample.Must(nameof(input.CharExample)).BeEqual('x');
+            input.LongExample.Must(nameof(input.LongExample)).BePositive();
+            input.ShortExample.Must(nameof(input.ShortExample)).BeNegative();
+            input.UshortExample.Must(nameof(input.UshortExample)).BeEqual((ushort)2);
+            input.SByteExample.Must(nameof(input.SByteExample)).BeEqual((sbyte)1);
+            
+            input.NIntExample.Must(nameof(input.NIntExample)).BeLessThan(1);
+            input.NLongExample.Must(nameof(input.NLongExample)).BePositive();
+            input.NShortExample.Must(nameof(input.NShortExample)).BeNegative();
+            input.NuShortExample.Must(nameof(input.NuShortExample)).BeEqual((ushort)2);
+            input.NsByteExample.Must(nameof(input.NsByteExample)).BeEqual((sbyte)1);
+            input.StringCollectionExample.Must(nameof(input.StringCollectionExample)).NotBeEmpty();
+
             return Task.CompletedTask;
         }
     }
@@ -81,11 +90,19 @@ Defence result example :
 ```json
     {
       "defenceErrors": [
-        "Family : Must have exact length 5 But it is Null",
-        "Family : Must be equal to testi But it is Null",
-        "Family : Must not be null or empty",
-        "Age : Must be less than 5"
+        "BoolExample : Must be equal to True",
+        "ByteExample : Must be greater than 1",
+        "CharExample : Must be equal to x",
+        "DoubleExample : Must be greater than 3.3",
+        "FloatExample : Must be equal to 4",
+        "UshortExample : Must be equal to 2",
+        "SByteExample : Must be equal to 1",
+        "NIntExample : Must be less than 1 But it is Null",
+        "NLongExample : Must be positive But it is Null",
+        "NShortExample : Must be negative But it is Null",
+        "NuShortExample : Must be equal to 2 But it is Null",
+        "NsByteExample : Must be equal to 1 But it is Null"
       ],
-      "traceId": "0HMF2AHPP1PHI:00000005"
-    }
+      "traceId": "0HMFOJOP0A1I9:00000005"
+    } 
 ```

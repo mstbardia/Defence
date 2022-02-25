@@ -3,7 +3,8 @@ using Defence.Exceptions;
 using Defence.Internals.Abstractions;
 using Defence.Internals.Handlers;
 using Defence.Validations;
-using Defence.Validations.Extensions.Double;
+using Defence.Validations.Abstractions;
+using Defence.Validations.Extensions;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
@@ -23,7 +24,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -44,7 +45,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThan(expectedValue);
@@ -65,7 +66,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -86,7 +87,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeLessThanOrEqual(expectedValue);
@@ -107,7 +108,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -128,7 +129,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThan(expectedValue);
@@ -148,7 +149,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -169,7 +170,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeGreaterThanOrEqual(expectedValue);
@@ -189,7 +190,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -210,7 +211,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeEqual(expectedValue);
@@ -231,7 +232,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -252,7 +253,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BePositive();
@@ -273,7 +274,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();
@@ -294,7 +295,7 @@ public class DoubleValidationTests
         var defenceErrorHandler = new DefenceErrorHandler(defenceContextHandler);
         var fakeField = new Fixture().Create<string>();
 
-        var validator = new DoubleValidation(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
+        var validator = new BaseValidation<double>(new DefenceProperty<double>(fakeField, input), defenceErrorHandler);
 
         // Act
         var result = () => validator.BeNegative();

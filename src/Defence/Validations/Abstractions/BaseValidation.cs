@@ -2,7 +2,7 @@
 
 namespace Defence.Validations.Abstractions;
 
-public abstract class BaseValidation<T>
+public class BaseValidation<T>
 {
     private readonly DefenceProperty<T> _input;
 
